@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+dist/
+target/
+
+# 本地工具（内部 Maven 安装包，无需入库）
+tools/
+
+# 运行时上传的文件
+uploads/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# 日志
+*.log
+npm-debug.log*
+
+# 本地环境配置（含数据库密码，切勿提交）
+application-local.yml
+.env

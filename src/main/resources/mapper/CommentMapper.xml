@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.campus.market.mapper.CommentMapper">
+
+    <select id="selectByProductId" resultType="com.campus.market.entity.Comment">
+        SELECT c.id, c.product_id, c.user_id, c.content, c.parent_id, c.create_time,
+               u.nickname AS userNickname,
+               u.avatar   AS userAvatar
+        FROM comment c
+        LEFT JOIN `user` u ON c.user_id = u.id
+        WHERE c.product_id = #{productId} AND c.deleted = 0
+        ORDER BY c.create_time ASC, c.id ASC
+    </select>
+
+</mapper>
